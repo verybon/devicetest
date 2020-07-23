@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title> SVG Chart Test </title>
+	<style>
+		body{
+			min-width: 400px;
+		}
+		svg {
+			transform: rotate(-90deg);
+		}
+		circle{
+			transition: all .3s ease;
+		}
+		.subject{
+			margin: 0 0 20px;
+			font-size: 20px;
+		}
+		.subject{
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+		.subject input[type="radio"]{
+			width: 20px;
+			height: 20px;
+		}
+		.bt-submit{
+			width: 100%;
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<h1>좋아하는 과목 선택하기</h1>
+	<div class="subject">
+		<label><input type="radio" name="subject" data-subject="0">국어</label>
+		<label><input type="radio" name="subject" data-subject="1">영어</label>
+		<label><input type="radio" name="subject" data-subject="2">수학</label>
+	</div>
+	<div>
+		<input type="submit" value="전송" id="choiceBtn" class="bt-submit" />
+	</div>
+	<!-- <p>
+		stroke-dasharray="40 190"<br>
+		- 첫번째 값은 길이(백분율)<br>
+		- 두번째 값은 2πr (2*3.14*반지름)
+	</p>
+	<p>
+		stroke-dashoffset="0"<br>
+		- 위치를 나타냄, 이전 circle 다음에 붙이려면 이전 circle의 stroke-dasharray 값을 음수로
+	</p> -->
+
+	<div style="width: 400px; height: 400px; margin: 0 auto;border-radius: 50%; overflow: hidden;">
+		<svg viewBox="0 0 100 100">
+			<g fill="transparent" stroke-width="20">
+				<circle cx="50" cy="50" r="30" stroke-dasharray="189 189" stroke-dashoffset="0" stroke="#f0f0f0"></circle>
+			</g>
+			<g fill="transparent" stroke-width="20">
+				<circle cx="50" cy="50" r="30" stroke-dasharray="0 189" stroke-dashoffset="0" stroke="red" id="circSubject1" data-sj="0"></circle>
+				<circle cx="50" cy="50" r="30" stroke-dasharray="0 189" stroke-dashoffset="0" stroke="green" id="circSubject2" data-sj="1"></circle>
+				<circle cx="50" cy="50" r="30" stroke-dasharray="0 189" stroke-dashoffset="0" stroke="blue" id="circSubject3" data-sj="2"></circle>
+			</g>
+		</svg>
+		
+	</div>
+	<h2>과목별 득표수</h2>
+	<ul>
+	<li>국어 : <span id="vote1">0</span></li>
+	<li>영어 : <span id="vote2">0</span></li>
+	<li>수학 : <span id="vote3">0</span></li>
+	</ul>
+	<script>
+	(() => {
+		let dataCount = 0;
+		let dataSubject = [0, 0, 0];
+		const choiceBtn = document.querySelector( '#choiceBtn' );
+		const totalLen = Math.ceil( document.querySelector( 'circle' ).getTotalLength() );
+
+		// fn: 계산
+		function calcGo(){
+			let circleOffset = 0;
+			for (let index = 0; index < document.querySelector( '.subject' ).childElementCount; index++){
+				let sj = `sj${index+1}`;
+				let dataRate = Math.round( totalLen * dataSubject[`${index}`] / dataCount );
+				
+				// dasharray 값 넣기
+				document.querySelector( `#circSubject${ index + 1 }` ).setAttribute( 'stroke-dasharray', `${dataRate} ${totalLen}` );
+				// dashoffset 값 넣기
+				if( index > 0){
+					document.querySelector( `#circSubject${ index + 1 }` ).setAttribute( 'stroke-dashoffset', -circleOffset );
+				} else {
+					document.querySelector( `#circSubject${ index + 1 }` ).setAttribute( 'stroke-dashoffset', 0 );
+				}
+				// offset값 세팅
+				circleOffset = circleOffset + dataRate;
+			}
+			// offset값 초기화
+			circleOffset = 0;
+		}
+
+		// fn: 범례
+		function voteSubject( num ){
+			const targetSubject = Number( document.querySelector( '#vote' + num ).innerHTML );
+			document.querySelector( `#vote${ num }` ).innerHTML = targetSubject + 1;
+		}
+
+		// 버튼 클릭이벤트
+		choiceBtn.addEventListener('click', function(e){
+			// 라디오 선택했는지 확인
+			if( document.querySelector( '.subject [type=radio]:checked' ) == null ){
+				console.log( '좋아하는 과목을 선택해주세용' );
+				return;
+			}
+
+			let rdoChk = parseInt( document.querySelector( '.subject [type=radio]:checked' ).dataset.subject );
+			// 체크된 라디오 더하기
+			dataSubject[ rdoChk ]++;
+			// 범례
+			voteSubject( rdoChk + 1 );
+			// 전체 카운트
+			dataCount++;
+			// 계산 함수 실행
+			calcGo();
+		});
+
+	 })();
+	</script>
+
+</body>
+</html>
