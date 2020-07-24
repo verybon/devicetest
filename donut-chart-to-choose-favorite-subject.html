@@ -59,12 +59,28 @@
 				<circle cx="50" cy="50" r="30" stroke-dasharray="189 189" stroke-dashoffset="0" stroke="#f0f0f0"></circle>
 			</g>
 			<g fill="transparent" stroke-width="20">
-				<circle cx="50" cy="50" r="30" stroke-dasharray="0 189" stroke-dashoffset="0" stroke="red" id="circSubject1" data-sj="0"></circle>
-				<circle cx="50" cy="50" r="30" stroke-dasharray="0 189" stroke-dashoffset="0" stroke="green" id="circSubject2" data-sj="1"></circle>
-				<circle cx="50" cy="50" r="30" stroke-dasharray="0 189" stroke-dashoffset="0" stroke="blue" id="circSubject3" data-sj="2"></circle>
+				<circle cx="50" cy="50" r="30" stroke-dasharray="0 189" stroke-dashoffset="0" stroke="url(#pattern1)" id="circSubject1" data-sj="0"></circle>
+				<circle cx="50" cy="50" r="30" stroke-dasharray="0 189" stroke-dashoffset="0" stroke="url(#pattern2)" id="circSubject2" data-sj="1"></circle>
+				<circle cx="50" cy="50" r="30" stroke-dasharray="0 189" stroke-dashoffset="0" stroke="url(#pattern3)" id="circSubject3" data-sj="2"></circle>
 			</g>
+			<defs>
+				<pattern id="pattern1" x="0" y="0" width=".1" height=".1">
+					<rect x="0" y="0" width="10" height="10" fill="blue"/>
+					<rect x="0" y="0" width="1" height="1" fill="aqua"/>
+				</pattern>
+				<pattern id="pattern2" x="0" y="0" width=".1" height=".1">
+					<rect width="70" height="70" fill="#ff0000"/>
+					<g transform="rotate(45)">
+						<rect width="99" height="25" fill="#ff7777"/>
+						<rect y="-50" width="99" height="25" fill="#ff7777" />
+					</g>
+				</pattern>
+				<pattern id="pattern3" x="0" y="0" width=".15" height=".15">
+					<rect x="0" y="0" width="20" height="20" fill="green"/>
+					<circle cx="1" cy="1" r="1" fill="yellow" />
+				</pattern>
+			</defs>
 		</svg>
-		
 	</div>
 	<h2>과목별 득표수</h2>
 	<ul>
