@@ -7,8 +7,9 @@
 	<style>
 		body{
 			min-width: 400px;
+			text-align: center;
 		}
-		svg {
+		svg{
 			transform: rotate(-90deg);
 		}
 		circle{
@@ -30,6 +31,15 @@
 		.bt-submit{
 			width: 100%;
 			height: 50px;
+		}
+		.vote-result{
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			list-style: none;
+		}
+		.vote-result li *{
+			vertical-align: middle
 		}
 	</style>
 </head>
@@ -82,11 +92,27 @@
 			</defs>
 		</svg>
 	</div>
+	
 	<h2>과목별 득표수</h2>
-	<ul>
-	<li>국어 : <span id="vote1">0</span></li>
-	<li>영어 : <span id="vote2">0</span></li>
-	<li>수학 : <span id="vote3">0</span></li>
+	<ul class="vote-result">
+	<li>
+		<svg viewbox="2 2 9 9" width="34" height="34">
+			<rect x="0" y="0" width="30" height="30" fill="url(#pattern1)"/>
+		</svg>
+		<strong>국어 : </strong><span id="vote1">0</span>
+	</li>
+	<li>
+		<svg viewbox="2 2 9 9" width="34" height="34">
+			<rect x="0" y="0" width="30" height="30" fill="url(#pattern2)"/>
+		</svg>
+		<strong>영어 : </strong><span id="vote2">0</span>
+	</li>
+	<li>
+		<svg viewbox="3 3 9 9" width="34" height="34">
+			<rect x="0" y="0" width="30" height="30" fill="url(#pattern3)"/>
+		</svg>
+		<strong>수학 : </strong><span id="vote3">0</span>
+	</li>
 	</ul>
 	<script>
 	(() => {
