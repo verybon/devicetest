@@ -1,27 +1,27 @@
 <!doctype html>
-	<html lang="ko">
+<html lang="ko">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>꿀페이</title>
-    <style>
-      *{margin: 0;padding: 0;}
-      html,body{height: 100%;}
-      a{text-decoration: none;}
-      main{min-height: 100%;height: 1200px;}
-      .btn{width: 100%;height: 52px;background: #2e81f8;font-weight: bold;font-size: 16px;line-height: 52px;}
-      .btn .inner-balloon{position: absolute;top: -5px;left: 50%;padding: 5px 12px;border-radius: 10px;background: #f26f75;font-size: 14px;line-height: 1;white-space: nowrap;box-shadow: 2px 2px 2px rgba(0,0,0,.1);-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
-      .btn .inner-balloon > span{position: relative;z-index: 1;}
-    </style>
+		<title>버튼 속 말풍선 테스트</title>
+    	<style>
+			*{margin: 0;padding: 0;}
+			html,body{height: 100%;}
+			a{text-decoration: none;}
+			main{min-height: 100%;height: 1200px;}
+			.link{display: block;position: fixed;left: 0;bottom: 0;width: 100%;height: 52px;background: #2e81f8;font-weight: bold;font-size: 16px;line-height: 52px;color: #fff;}
+			.link .inner-balloon{position: absolute;top: -5px;left: 50%;padding: 5px 12px;border-radius: 10px;background: #f26f75;font-size: 14px;line-height: 1;white-space: nowrap;box-shadow: 2px 2px 2px rgba(0,0,0,.1);-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+			.link .inner-balloon > span{position: relative;z-index: 1;}
+		</style>
 	</head>
-  <body>
-    <main>
-      <a href="#none" class="btn">
-        <span class="inner-balloon">
-          <span>신분증 준비하셨지요? 5분이면 끝!</span>
-        </span>
-        <span class="inner-txt">보험 가입하기</span>
-      </a>
-    </main>
-  </body>
+	<body>
+		<main>
+			<a href="#none" class="link">
+				<span class="inner-balloon">
+					<span>신분증 준비하셨지요? 5분이면 끝!</span>
+				</span>
+				<span class="inner-txt">보험 가입하기</span>
+			</a>
+		</main>
+		</body>
 </html>
