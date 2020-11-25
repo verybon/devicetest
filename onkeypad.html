@@ -146,11 +146,11 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-$( document ).on('focusin', 'input:text, input:tel, input:email, input:password, select', function(){
+$( document ).on('focusin', 'input[type="text"], input[type="tel"], input[type="email"], input[type="password"], select', function(){
   console.log( 'i n' );
   $( '.wrap-btn-fixed' ).css( 'position', 'static' );
 });
-$( document ).on('focusout', 'input:text, input:tel, input:email, input:password, select', function(){
+$( document ).on('focusout', 'input[type="text"], input[type="tel"], input[type="email"], input[type="password"], select', function(){
   console.log( 'o u t' );
   $( '.wrap-btn-fixed' ).css( 'position', 'fixed' );
 });	
