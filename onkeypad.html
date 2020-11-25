@@ -103,17 +103,20 @@
       <input type="text" />
     </div>
   </div>
-</div>
-<div class="wrap-btn-fixed">
-  <button type="button">다음</button>
+
+  <div class="wrap-btn-fixed">
+    <button type="button">다음</button>
+  </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-$( 'input:text' ).on('focusin', function(){
+$( document ).on('focusin', 'input:text, input:tel, input:email, input:password, select', function(){
   console.log( 'i n' );
+  $( '.wrap-btn-fixed' ).css( 'position', 'static' );
 });
-$( 'input:text' ).on('focusout', function(){
+$( document ).on('focusout', 'input:text, input:tel, input:email, input:password, select', function(){
   console.log( 'o u t' );
+  $( '.wrap-btn-fixed' ).css( 'position', 'fixed' );
 });	
 </script>
 </body>
