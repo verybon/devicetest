@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> css 변수 </title>
+    <style>
+        :root{
+            --text-color-default: #222;
+            --text-color-primary: rgb(6,155,6);
+            --bg-color-default: #ffcc00;
+            --bg-none: none;
+            --text-link-color: #2512ca;
+            --guide-box-padding: 30px 35px;
+            --text-box-padding: 20px;
+            --text-box-color: #fff;
+            --text-box-bg-color: #333;
+            --padding-zero: 0;
+            --display-block: block;
+        }
+        body{
+            color: var(--text-color-default);
+        }
+        h1{
+            color: var(--text-color-primary);
+        }
+        p{
+            padding: var(--guide-box-padding);
+            background-color: var(--bg-color-default);
+        }
+        a{
+            color: var(--text-link-color);
+        }
+        .textBox{
+            padding: var(--text-box-padding);
+            background-color: var(--text-box-bg-color);
+        }
+        .textBox > p{
+            padding: var(--padding-zero);
+            color: var(--text-box-color);
+            background-color: var(--bg-none);
+        }
+        .textBox > p span{
+            display: var(--display-block);
+        }
+    </style>
+</head>
+<body>
+    <h1>css 변수 사용</h1>
+    <p>IE11 이하 지원 안 됨.</p>
+    <a href="#!">링크</a>
+    <div class="textBox">
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id perferendis ad facilis ex voluptatem suscipit quasi at harum esse, doloremque sed dolorem repellat cum, minus neque pariatur reprehenderit necessitatibus repellendus.
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aut, officia harum inventore eligendi tempora accusamus voluptas, aperiam quos obcaecati ipsum alias, explicabo est dolor asperiores. Sint ex alias autem?</span>
+        </p>
+    </div>
+</body>
+</html>
