@@ -31,7 +31,7 @@
     <a href="#">테스트링크3</a>
     <a href="#">테스트링크4</a>
   </div>
-  <div class="popup_bot connect_pop rpIsr-popup show" id="isr_popup_agree" role="dialog" aria-hidden="false">
+  <div class="popup_bot connect_pop rpIsr-popup" id="isr_popup_agree" role="dialog" aria-hidden="false">
     <div class="pop_content form">
       <h3 tabindex="-1">개인(신용)정보 필수 동의서</h3>
       <div>
@@ -54,7 +54,7 @@
     $( "#btn-laypop-func, .popup_bot__btn_close" ).on('click', function(){
       if( $( '#btn-laypop-func' ).hasClass('oo') ){
         $( '#isr_popup_agree' ).removeClass( 'show' ).attr( 'aria-hidden', 'true' );
-        $( '#btn-laypop-func' ).removeClass( 'oo' ).text( '레이어팝업 열기' );
+        $( '#btn-laypop-func' ).removeClass( 'oo' ).text( '레이어팝업 열기' ).focus();
         $( '.rpIsr' ).attr( 'aria-hidden', 'false' );
       } else {
         $( '#isr_popup_agree' ).addClass( 'show' ).attr( 'aria-hidden', 'false' );
