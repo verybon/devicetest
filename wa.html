@@ -43,13 +43,13 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script>
-    $( "#btn-laypop-func" ).on('click', function(){
-      if( $( this ).hasClass('oo') ){
+    $( "#btn-laypop-func, .popup_bot__btn_close" ).on('click', function(){
+      if( $( '#btn-laypop-func' ).hasClass('oo') ){
         $( '#isr_popup_agree' ).removeClass( 'show' ).attr( 'aria-hidden', 'true' );
-        $( this ).removeClass( 'oo' );
+        $( '#btn-laypop-func' ).removeClass( 'oo' );
       } else {
         $( '#isr_popup_agree' ).addClass( 'show' ).attr( 'aria-hidden', 'false' );
-        $( this ).addClass( 'oo' );
+        $( '#btn-laypop-func' ).addClass( 'oo' );
       }
     });
   </script>
