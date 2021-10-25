@@ -11,7 +11,7 @@
     span.hide{width:0 !important;height:0 !important;overflow:hidden;display:inline-block;}
     
     .rpIsr{color:#000;line-height:1.5;}
-    .popup_bot{position:fixed;z-index:71;left:0;right:0;bottom:0;padding:32px 20px;border-radius:23px 23px 0 0;background-color:#eee;}
+    .popup_bot{position:fixed;z-index:71;left:0;right:0;bottom:0;padding:32px 20px;border-radius:23px 23px 0 0;background-color:#eee;opacity:0;visibility:hidden;-webkit-transform:translateY(120%);transform: translateY(120%);transition:opacity .4s ease, transform .4s ease;}
     .popup_bot.show{opacity:1;visibility:visible;transform: translateY(0);transition: opacity .3s ease, transform .3s ease;}
     .popup_bot__btn_close{display:block;position:absolute;top:-28px;left:auto;right:8px;width:auto;min-width:16px;height:16px;padding-right:28px;font-size:13px;color:#fff;line-height:16px;white-space:nowrap;-webkit-tab\p-highlight-color:rgba(0,0,0,0);}
     .popup_bot__btn_close:before,
@@ -45,10 +45,10 @@
   <script>
     $( "#btn-laypop-func" ).on('click', function(){
       if( $( this ).hasClass('oo') ){
-        $( '#isr_popup_agree' ).removeClass( 'show' );
+        $( '#isr_popup_agree' ).removeClass( 'show' ).attr( 'aria-hidden', 'true' );
         $( this ).removeClass( 'oo' );
       } else {
-        $( '#isr_popup_agree' ).addClass( 'show' );
+        $( '#isr_popup_agree' ).addClass( 'show' ).attr( 'aria-hidden', 'false' );
         $( this ).addClass( 'oo' );
       }
     });
